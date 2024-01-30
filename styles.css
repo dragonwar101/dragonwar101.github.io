@@ -41,6 +41,14 @@ ul {
     margin-bottom: 20px;
 }
 
+.under-construction {
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('images/under-construction1.png');
+}
+
 footer {
     background-color: #333;
     color: #fff;
