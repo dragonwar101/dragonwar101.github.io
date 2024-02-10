@@ -1,3 +1,24 @@
+@font-face {
+    font-family: Arcade, sans-serif;
+    src: url('./fonts/ARCADECLASSIC.TTF');
+}
+.arcade {
+    font-family: arcade;
+}
+
+.title {
+    font-size: larger;
+}
+.nav {
+    position: absolute;
+    top: 25%;
+    left: 30px;
+}
+.nav-links {
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
