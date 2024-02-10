@@ -2,7 +2,7 @@ name: publish-to-github-pages
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dragonwar101.github.io/out
+          path: ./out/
 
   deploy:
     environment:
