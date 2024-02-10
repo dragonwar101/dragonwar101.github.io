@@ -31,7 +31,8 @@ jobs:
 
             - name: Build with Next.js 🏗️
               run: npx next build
-              
+            
+            -  run: ls
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
