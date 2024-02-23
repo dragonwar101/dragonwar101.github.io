@@ -42,6 +42,7 @@ jobs:
                 SENDER_ID: ${{ secrets.SENDER_ID }}
                 APP_ID: ${{ secrets.APP_ID }}
                 MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
+                OWNER: dragonwar101
               run: npx --no-install next build
             
             - name: Upload artifact
