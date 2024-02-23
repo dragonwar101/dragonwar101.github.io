@@ -4,13 +4,13 @@ import { getAnalytics, isSupported } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig : FirebaseOptions = {
-  apiKey: "AIzaSyBDDGzEMqh_ZLBS9xgJ5QWLFcPnrLjuNgE",
+  apiKey: process.env.API_KEY,
   authDomain: "dragonwar101-portfolio.firebaseapp.com",
   projectId: "dragonwar101-portfolio",
   storageBucket: "dragonwar101-portfolio.appspot.com",
-  messagingSenderId: "6574426302",
-  appId: "1:6574426302:web:ce76cd34b404d7dac376ef",
-  measurementId: "G-5N5EMW2KVZ",
+  messagingSenderId: process.env.SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
   databaseURL: "https://dragonwar101-portfolio-default-rtdb.europe-west1.firebasedatabase.app/"
 };
 
