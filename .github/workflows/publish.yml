@@ -23,13 +23,6 @@ jobs:
 
             - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
               uses: ./.github/workflows/setup-node
-            # - name: Generate Env
-            #   run: | 
-            #     touch .env.local
-            #     echo API_KEY=${{ secrets.API_KEY }} >> .env.local
-            #     echo SENDER_ID=${{ secrets.SENDER_ID }} >> .env.local
-            #     echo APP_ID=${{secrets.APP_ID}} >> .env.local
-            #     echo MEASUREMENT_ID=${{secrets.MEASUREMENT_ID}} >> .env.local
 
             - name: Setup Pages ⚙️
               uses: actions/configure-pages@v4
@@ -42,7 +35,6 @@ jobs:
                 SENDER_ID: ${{ secrets.SENDER_ID }}
                 APP_ID: ${{ secrets.APP_ID }}
                 MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
-                OWNER: dragonwar101
               run: npx --no-install next build
             
             - name: Upload artifact
