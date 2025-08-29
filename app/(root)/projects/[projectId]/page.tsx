@@ -18,8 +18,6 @@ interface ProjectPageProps {
   };
 }
 
-const githubUsername = "dragonwar101";
-
 export function generateStaticParams() {
   return Projects.map((project) => ({
     projectId: project.id,

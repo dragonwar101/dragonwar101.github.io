@@ -47,26 +47,45 @@ export function ContactForm() {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const formLink = process.env.NEXT_PUBLIC_GOOGLE_FORM_LINK;
+      const fieldIdName = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_NAME;
+      const fieldIdEmail = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_EMAIL;
+      const fieldIdMessage = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_MESSAGE;
+      const fieldIdSocial = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_SOCIAL;
+
+      if (!formLink || !fieldIdName || !fieldIdEmail || !fieldIdMessage || !fieldIdSocial) {
+        storeModal.onOpen({
+          title: "Configuration needed",
+          description: "Contact form is not configured. Please set NEXT_PUBLIC_GOOGLE_FORM_* env vars.",
+          icon: Icons.warning,
+        });
+        return;
+      }
+
+      const url = `${formLink}/formResponse?${fieldIdName}=${encodeURIComponent(
+        values.name
+      )}&${fieldIdEmail}=${encodeURIComponent(values.email)}&${fieldIdMessage}=${encodeURIComponent(
+        values.message
+      )}&${fieldIdSocial}=${encodeURIComponent(values.social || "")}`;
+
+      // Google Forms accepts GET to /formResponse for submissions
+      await fetch(url, { method: "GET", mode: "no-cors" });
 
       form.reset();
 
-      if (response.status === 200) {
-        storeModal.onOpen({
-          title: "Thankyou!",
-          description:
-            "Your message has been received! I appreciate your contact and will get back to you shortly.",
-          icon: Icons.successAnimated,
-        });
-      }
+      storeModal.onOpen({
+        title: "Thank you!",
+        description:
+          "Your message has been received! I appreciate your contact and will get back to you shortly.",
+        icon: Icons.successAnimated,
+      });
     } catch (err) {
       console.log("Err!", err);
+      storeModal.onOpen({
+        title: "Something went wrong",
+        description: "Please try again later or reach me on social links.",
+        icon: Icons.warning,
+      });
     }
   }
 
