@@ -57,9 +57,10 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   return experiences.map((experience) => ({
-    slug: experience.id,
+    expId: experience.id,
   }))
 }
+
 export default function ExperienceDetailPage({
   params,
 }: ExperienceDetailPageProps) {

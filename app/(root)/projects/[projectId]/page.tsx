@@ -22,7 +22,7 @@ const githubUsername = "dragonwar101";
 
 export async function generateStaticParams() {
   return Projects.map((project) => ({
-    slug: project.id,
+    projectId: project.id,
   }))
 }
 
