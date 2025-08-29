@@ -46,7 +46,6 @@ import {
   SiAngular,
   SiBootstrap,
   SiCss3,
-  SiExpress,
   SiGmail,
   SiGraphql,
   SiHtml5,
@@ -60,11 +59,17 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiReact,
-  SiRedux,
-  SiSocketdotio,
   SiTailwindcss,
   SiTwitter,
   SiTypescript,
+  SiVercel,
+  SiGit,
+  SiVuedotjs,
+  SiVuetify,
+  SiDigitalocean,
+  SiNuxtdotjs,
+  SiSqlite,
+  SiMicrosoftsqlserver
 } from "react-icons/si";
 
 export const Icons = {
@@ -105,7 +110,6 @@ export const Icons = {
   angular: SiAngular,
   bootstrap: SiBootstrap,
   css3: SiCss3,
-  express: SiExpress,
   graphql: SiGraphql,
   html5: SiHtml5,
   javascript: SiJavascript,
@@ -117,8 +121,6 @@ export const Icons = {
   nextjs: SiNextdotjs,
   nodejs: SiNodedotjs,
   react: SiReact,
-  redux: SiRedux,
-  socketio: SiSocketdotio,
   tailwindcss: SiTailwindcss,
   typescript: SiTypescript,
   gmail: SiGmail,
@@ -126,6 +128,7 @@ export const Icons = {
   linkedin: SiLinkedin,
   userFill: BiSolidUser,
   work: HiBriefcase,
+  git: SiGit,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
@@ -173,4 +176,12 @@ export const Icons = {
   paper: Scroll,
   aurora: Sparkles,
   synthwave: Music,
+  vercel: SiVercel,
+  vue: SiVuedotjs,
+  vuetify: SiVuetify,
+  digitalocean: SiDigitalocean,
+  nuxt: SiNuxtdotjs,
+  sqlite: SiSqlite,
+  sqlserver: SiMicrosoftsqlserver,
+
 };

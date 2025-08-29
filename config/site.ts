@@ -1,13 +1,13 @@
 export const siteConfig = {
-  name: "Naman Barkiya | Developer Portfolio",
-  authorName: "Naman Barkiya",
-  username: "namanbarkiya",
+  name: "Mohamed Tarek | Developer Portfolio",
+  authorName: "Mohamed Tarek",
+  username: "dragonwar101",
   description:
-    "Naman Barkiya's portfolio - A modern, responsive Next.js portfolio for developers. This open-source template can be customized to showcase your own skills, projects, and professional experience.",
-  url: "https://nbarkiya.xyz",
+    "Mohamed Tarek's portfolio - A modern, responsive Next.js portfolio for developers. This open-source template can be customized to showcase your own skills, projects, and professional experience.",
+  url: "https://dragonwar101.github.io",
   links: {
-    twitter: "https://x.com/namanbarkiya",
-    github: "https://github.com/namanbarkiya",
+    twitter: "https://x.com/Mohamed87072246",
+    github: "https://github.com/dragonwar101",
   },
   ogImage: "https://nbarkiya.xyz/profile-img.jpg",
   iconIco:
@@ -15,7 +15,7 @@ export const siteConfig = {
   logoIcon:
     "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357294/assets/naman-logo.png",
   keywords: [
-    "Naman Barkiya",
+    "Mohamed Tarek",
     "Full Stack Developer",
     "Web Developer Portfolio",
     "Next.js portfolio template",

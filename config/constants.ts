@@ -41,8 +41,6 @@ export type ValidSkills =
   | "Webpack"
   | "Jest"
   | "Cypress"
-  | "Storybook"
-  | "Prisma"
   | "Supabase"
   | "Vercel"
   | "Netlify"
@@ -60,7 +58,14 @@ export type ValidSkills =
   | "FastAPI"
   | "SQL"
   | "NoSQL"
-  | "Framer Motion";
+  | "Framer Motion"
+  | "Vue"
+  | "SQLServer"
+  | "Nuxt.js"
+  | "Tailwind CSS"
+  | "Owl Carousel"
+  | "Laravel Blade"
+  | "Jquery";
 
 export type ValidCategory =
   | "Full Stack"

@@ -26,35 +26,28 @@ export const skillsUnsorted: skillsInterface[] = [
     name: "GraphQL",
     description:
       "Fetch data precisely with a powerful query language for APIs and runtime execution.",
-    rating: 4,
+    rating: 3,
     icon: Icons.graphql,
   },
   {
     name: "Nest.js",
     description:
       "Create scalable and modular applications with a progressive Node.js framework.",
-    rating: 4,
+    rating: 3,
     icon: Icons.nestjs,
-  },
-  {
-    name: "express.js",
-    description:
-      "Build web applications and APIs quickly using a fast, unopinionated Node.js framework.",
-    rating: 5,
-    icon: Icons.express,
   },
   {
     name: "Node.js",
     description:
       "Run JavaScript on the server side, enabling dynamic and responsive applications.",
-    rating: 5,
+    rating: 4,
     icon: Icons.nodejs,
   },
   {
     name: "MongoDB",
     description:
       "Store and retrieve data seamlessly with a flexible and scalable NoSQL database.",
-    rating: 5,
+    rating: 4,
     icon: Icons.mongodb,
   },
   {
@@ -75,21 +68,21 @@ export const skillsUnsorted: skillsInterface[] = [
     name: "HTML 5",
     description:
       "Structure web content beautifully with the latest version of HyperText Markup Language.",
-    rating: 4,
+    rating: 5,
     icon: Icons.html5,
   },
   {
     name: "CSS 3",
     description:
       "Style web pages creatively with the latest iteration of Cascading Style Sheets.",
-    rating: 4,
+    rating: 5,
     icon: Icons.css3,
   },
   {
     name: "React Native",
     description:
       "Develop cross-platform mobile apps using React for consistent and engaging experiences.",
-    rating: 4,
+    rating: 3,
     icon: Icons.react,
   },
   {
@@ -99,28 +92,6 @@ export const skillsUnsorted: skillsInterface[] = [
     rating: 3,
     icon: Icons.angular,
   },
-  {
-    name: "Redux",
-    description:
-      "Manage app state effectively using a predictable and centralized state container.",
-    rating: 4,
-    icon: Icons.redux,
-  },
-  {
-    name: "Socket.io",
-    description:
-      "Enable real-time, bidirectional communication between clients and servers effortlessly.",
-    rating: 3,
-    icon: Icons.socketio,
-  },
-  {
-    name: "Material UI",
-    description:
-      "Create stunning and responsive UIs with a popular React UI framework.",
-    rating: 4,
-    icon: Icons.mui,
-  },
-
   {
     name: "Tailwind CSS",
     description:
@@ -139,14 +110,14 @@ export const skillsUnsorted: skillsInterface[] = [
     name: "Bootstrap",
     description:
       "Quickly create responsive and appealing web designs using a popular CSS framework.",
-    rating: 2,
+    rating: 4,
     icon: Icons.bootstrap,
   },
   {
     name: "MySQL",
     description:
       "Manage and organize relational databases efficiently for data-driven applications.",
-    rating: 2,
+    rating: 5,
     icon: Icons.mysql,
   },
   {
@@ -155,6 +126,55 @@ export const skillsUnsorted: skillsInterface[] = [
       "Manage and organize relational databases efficiently for data-driven applications.",
     rating: 4,
     icon: Icons.netlify,
+  },
+  {
+    name: "Vercel",
+    description:
+      "Deploy and manage web applications with a fast and reliable platform.",
+    rating: 4,
+    icon: Icons.vercel,
+  },
+  {
+    name: "Vue.js",
+    description:
+      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+    rating: 5,
+    icon: Icons.vue,
+  },
+  {
+    name: "Vuetify",
+    description:
+      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+    rating: 5,
+    icon: Icons.vuetify,
+  },
+  {
+    name: "DigitalOcean",
+    description:
+      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+    rating: 4,
+    icon: Icons.digitalocean,
+  },
+  {
+    name: "Nuxt.js",
+    description:
+      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+    rating: 5,
+    icon: Icons.nuxt,
+  },
+  {
+    name: "SQLite",
+    description:
+      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+    rating: 4,
+    icon: Icons.sqlite,
+  },
+  {
+    name: "SQL Server",
+    description:
+      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+    rating: 4,
+    icon: Icons.sqlserver,
   },
 ];
 
