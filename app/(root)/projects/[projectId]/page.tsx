@@ -20,11 +20,13 @@ interface ProjectPageProps {
 
 const githubUsername = "dragonwar101";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return Projects.map((project) => ({
     projectId: project.id,
   }))
 }
+
+export const dynamicParams = false;
 
 export default function Project({ params }: ProjectPageProps) {
   let project = Projects.find((val) => val.id === params.projectId);

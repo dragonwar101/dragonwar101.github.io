@@ -55,11 +55,13 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return experiences.map((experience) => ({
     expId: experience.id,
   }))
 }
+
+export const dynamicParams = false;
 
 export default function ExperienceDetailPage({
   params,
