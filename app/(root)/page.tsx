@@ -100,7 +100,13 @@ export default function IndexPage() {
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Mohamed Tarek&apos;s portfolio - A Full stack developer portfolio built with Next.js 14
+              Welcome to my humble profile! I&apos;m a full stack developer that have a wide range of skills, technologies and experiences.
+              <br />
+              Recognized for my rapid adaptation to new technologies, I excel in problem solving, crafting reusable code, and ensuring stability and scaleablity with minimal technical dept.
+              <br />
+              Currently seeking opportunities to apply my skills in creating innovative solutions. 
+              <br />
+              Let&apos;s connect and discuss how I can contribute to your team&apos;s success!
             </p>
           </div>
 
