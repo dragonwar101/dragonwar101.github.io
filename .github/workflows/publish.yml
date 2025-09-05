@@ -40,7 +40,6 @@ jobs:
                 NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID }}
               run: |
                 npx --no-install next build
-                npx --no-install next export
             
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v4.0.0
