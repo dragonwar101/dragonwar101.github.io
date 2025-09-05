@@ -18,13 +18,11 @@ interface ProjectPageProps {
   };
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return Projects.map((project) => ({
     projectId: project.id,
   }))
 }
-
-export const dynamicParams = false;
 
 export default function Project({ params }: ProjectPageProps) {
   let project = Projects.find((val) => val.id === params.projectId);
