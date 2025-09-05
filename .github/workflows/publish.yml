@@ -31,10 +31,13 @@ jobs:
 
             - name: Build with Next.js 🏗️
               env:
-                API_KEY: ${{ secrets.API_KEY }}
-                SENDER_ID: ${{ secrets.SENDER_ID }}
-                APP_ID: ${{ secrets.APP_ID }}
-                MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
+                GOOGLE_FORM_LINK: ${{ secrets.GOOGLE_FORM_LINK }}
+                GOOGLE_FORM_FIELD_ID_NAME: ${{ secrets.GOOGLE_FORM_FIELD_ID_NAME }}
+                GOOGLE_FORM_FIELD_ID_EMAIL: ${{ secrets.GOOGLE_FORM_FIELD_ID_EMAIL }}
+                GOOGLE_FORM_FIELD_ID_MESSAGE: ${{ secrets.GOOGLE_FORM_FIELD_ID_MESSAGE }}
+                GOOGLE_FORM_FIELD_ID_SOCIAL: ${{ secrets.GOOGLE_FORM_FIELD_ID_SOCIAL }}
+                NEXT_PUBLIC_RESUME_LINK: ${{ secrets.RESUME_LINK }}
+                NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
               run: |
                 npx --no-install next build
                 npx --no-install next export
