@@ -33,7 +33,7 @@ export const siteConfig = {
     "Tailwind CSS portfolio",
     "Developer showcase",
     "Free portfolio",
-    "Next.js 15",
+    "Next.js 14",
     "Career timeline",
     "Portfolio with dark mode",
     "GitHub portfolio",

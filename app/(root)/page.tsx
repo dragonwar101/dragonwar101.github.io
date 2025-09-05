@@ -100,7 +100,7 @@ export default function IndexPage() {
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Mohamed Tarek&apos;s portfolio - A Full stack developer portfolio built with Next.js 15
+              Mohamed Tarek&apos;s portfolio - A Full stack developer portfolio built with Next.js 14
             </p>
           </div>
 
