@@ -1,10 +1,17 @@
-"use client";
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import type { Metadata } from "next";
+
+import { pagesConfig } from "@/config/pages";
+import ResumeRedirect from "./resume-redirect";
+
+export const metadata: Metadata = {
+  title: pagesConfig.resume.metadata.title,
+  description: pagesConfig.resume.metadata.description,
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function ResumePage() {
-  useEffect(() => {
-    redirect(process.env.NEXT_PUBLIC_RESUME_LINK || "/");
-  }, []);
-  return <div>Redirecting to the resume...</div>;
+  return <ResumeRedirect />;
 }

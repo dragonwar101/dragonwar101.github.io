@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ChipContainer from "@/components/ui/chip-container";
 import { ResponsiveTabs } from "@/components/ui/responsive-tabs";
 import { experiences } from "@/config/experience";
-import { siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface ExperienceDetailPageProps {
   params: {
@@ -43,16 +43,18 @@ export async function generateMetadata({
   if (!experience) {
     return {
       title: "Experience Not Found",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  return {
-    title: `${experience.position} at ${experience.company} | Experience`,
-    description: `Detailed information about my role as ${experience.position} at ${experience.company}.`,
-    alternates: {
-      canonical: `${siteConfig.url}/experience/${params.expId}`,
-    },
-  };
+  return createPageMetadata({
+    title: `${experience.position} at ${experience.company}`,
+    description: `${experience.position} at ${experience.company} in ${experience.location}. ${experience.description[0]}`,
+    path: `/experience/${encodeURIComponent(experience.id)}`,
+  });
 }
 
 export async function generateStaticParams() {
@@ -95,30 +97,34 @@ export default function ExperienceDetailPage({
         </AnimatedSection>
       ),
     },
-    {
-      value: "achievements",
-      label: "Achievements",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Key Achievements
-            </h3>
-            <ul className="space-y-3">
-              {experience.achievements.map((achievement, idx) => (
-                <li
-                  key={idx}
-                  className="text-base leading-relaxed flex items-start gap-3"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </AnimatedSection>
-      ),
-    },
+    ...(experience.achievements.length > 0
+      ? [
+          {
+            value: "achievements",
+            label: "Achievements",
+            content: (
+              <AnimatedSection delay={0.3}>
+                <div>
+                  <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
+                    Key Achievements
+                  </h3>
+                  <ul className="space-y-3">
+                    {experience.achievements.map((achievement, idx) => (
+                      <li
+                        key={idx}
+                        className="text-base leading-relaxed flex items-start gap-3"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ),
+          },
+        ]
+      : []),
     {
       value: "skills",
       label: "Skills",

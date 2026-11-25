@@ -1,15 +1,15 @@
-import { Metadata } from "next";
-
 import PageContainer from "@/components/common/page-container";
 import ProjectCard from "@/components/projects/project-card";
 import { ResponsiveTabs } from "@/components/ui/responsive-tabs";
 import { pagesConfig } from "@/config/pages";
 import { Projects } from "@/config/projects";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: pagesConfig.projects.metadata.title,
   description: pagesConfig.projects.metadata.description,
-};
+  path: "/projects",
+});
 
 const renderContent = (tabVal: string) => {
   let projectArr = Projects;
@@ -35,16 +35,19 @@ export default function ProjectsPage() {
       label: "All",
       content: renderContent("all"),
     },
-    {
-      value: "personal",
-      label: "Personal",
-      content: renderContent("personal"),
-    },
-    {
-      value: "professional",
-      label: "Professional",
-      content: renderContent("professional"),
-    },
+    ...(["personal", "professional"] as const)
+      .filter((category) =>
+        Projects.some(
+          (project) =>
+            project.type ===
+            (category === "personal" ? "Personal" : "Professional")
+        )
+      )
+      .map((category) => ({
+        value: category,
+        label: category === "personal" ? "Personal" : "Professional",
+        content: renderContent(category),
+      })),
   ];
 
   return (

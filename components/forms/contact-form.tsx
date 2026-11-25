@@ -32,8 +32,6 @@ const formSchema = z.object({
 export function ContactForm() {
   const storeModal = useModalStore();
 
-  // const [open, setOpen] = useState(false);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,49 +42,19 @@ export function ContactForm() {
     },
   });
 
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      const formLink = process.env.NEXT_PUBLIC_GOOGLE_FORM_LINK;
-      const fieldIdName = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_NAME;
-      const fieldIdEmail = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_EMAIL;
-      const fieldIdMessage = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_MESSAGE;
-      const fieldIdSocial = process.env.NEXT_PUBLIC_GOOGLE_FORM_FIELD_ID_SOCIAL;
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const body = encodeURIComponent(
+      `Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`
+    );
+    const subject = encodeURIComponent("Portfolio contact");
 
-      if (!formLink || !fieldIdName || !fieldIdEmail || !fieldIdMessage || !fieldIdSocial) {
-        storeModal.onOpen({
-          title: "Configuration needed",
-          description: "Contact form is not configured. Please set NEXT_PUBLIC_GOOGLE_FORM_* env vars.",
-          icon: Icons.warning,
-        });
-        return;
-      }
-
-      const url = `${formLink}/formResponse?${fieldIdName}=${encodeURIComponent(
-        values.name
-      )}&${fieldIdEmail}=${encodeURIComponent(values.email)}&${fieldIdMessage}=${encodeURIComponent(
-        values.message
-      )}&${fieldIdSocial}=${encodeURIComponent(values.social || "")}`;
-
-      // Google Forms accepts GET to /formResponse for submissions
-      await fetch(url, { method: "GET", mode: "no-cors" });
-
-      form.reset();
-
-      storeModal.onOpen({
-        title: "Thank you!",
-        description:
-          "Your message has been received! I appreciate your contact and will get back to you shortly.",
-        icon: Icons.successAnimated,
-      });
-    } catch (err) {
-      console.log("Err!", err);
-      storeModal.onOpen({
-        title: "Something went wrong",
-        description: "Please try again later or reach me on social links.",
-        icon: Icons.warning,
-      });
-    }
+    window.location.href = `mailto:m.tarekazab1997@gmail.com?subject=${subject}&body=${body}`;
+    storeModal.onOpen({
+      title: "Email draft ready",
+      description:
+        "Your email app should have opened with your message ready to send. If it didn't, email me directly at m.tarekazab1997@gmail.com.",
+      icon: Icons.infoMark,
+    });
   }
 
   return (

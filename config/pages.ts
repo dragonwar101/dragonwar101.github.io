@@ -14,62 +14,60 @@ type PagesConfig = {
 
 export const pagesConfig: PagesConfig = {
   home: {
-    title: "Home",
-    description: "Welcome to my portfolio website.",
+    title: "Full-Stack Developer Portfolio",
+    description:
+      "Full-stack developer with 7+ years of experience building web products with Python, Django, PHP, Laravel, Vue.js, and React.",
     metadata: {
-      title: "Home",
-      description: "Mohamed Tarek's portfolio website.",
+      title: "Full-Stack Developer Portfolio",
+      description:
+        "Mohamed Tarek Azab is a full-stack developer in Alexandria, Egypt, specializing in Python, Django, PHP, Laravel, Vue.js, and React.",
     },
   },
   skills: {
-    title: "Skills",
-    description: "Key skills that define my professional identity.",
+    title: "Technical Skills",
+    description:
+      "Technologies Mohamed Tarek Azab uses to build and ship web products.",
     metadata: {
-      title: "Skills",
+      title: "Technical Skills",
       description:
-        "Mohamed Tarek's key skills that define his professional identity.",
+        "Python, Django, PHP, Laravel, Vue.js, React, databases, integrations, and deployment skills.",
     },
   },
   projects: {
     title: "Projects",
-    description: "Showcasing impactful projects and technical achievements.",
+    description:
+      "Web products and integrations built by Mohamed Tarek Azab.",
     metadata: {
-      title: "Projects",
-      description: "Mohamed Tarek's projects in building web applications.",
+      title: "Web Development Projects",
+      description:
+        "Selected web development projects by Mohamed Tarek Azab, including product work for Osarh.",
     },
   },
   contact: {
     title: "Contact",
-    description: "Let's connect and explore collaborations.",
+    description: "Contact Mohamed Tarek Azab about full-stack development work.",
     metadata: {
       title: "Contact",
-      description: "Contact Mohamed Tarek.",
-    },
-  },
-  contributions: {
-    title: "Contributions",
-    description: "Open-source contributions and community involvement.",
-    metadata: {
-      title: "Contributions",
       description:
-        "Mohamed Tarek's open-source contributions and community involvement.",
+        "Get in touch with Mohamed Tarek Azab about web development opportunities and projects.",
     },
   },
   resume: {
     title: "Resume",
-    description: "Mohamed Tarek's resume.",
+    description: "Mohamed Tarek Azab's full-stack developer resume.",
     metadata: {
       title: "Resume",
-      description: "Mohamed Tarek's resume.",
+      description: "View or download Mohamed Tarek Azab's developer resume.",
     },
   },
   experience: {
-    title: "Experience",
-    description: "Professional journey and career timeline.",
+    title: "Professional Experience",
+    description:
+      "Full-stack development experience across product teams, freelance work, and e-commerce projects.",
     metadata: {
-      title: "Experience",
+      title: "Professional Experience",
       description:
-        "Mohamed Tarek's professional journey and experience timeline.",
+        "Mohamed Tarek Azab's professional experience building full-stack web products in Egypt and Saudi Arabia.",
     },
   },
 };

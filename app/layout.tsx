@@ -3,6 +3,7 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
+import type { Metadata } from "next";
 
 import { Analytics } from "@/components/common/analytics";
 import { ThemeProvider } from "@/components/common/theme-provider";
@@ -26,11 +27,11 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.authorName}`,
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -40,7 +41,7 @@ export const metadata = {
       url: siteConfig.url,
     },
   ],
-  creator: siteConfig.username,
+  creator: siteConfig.authorName,
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -51,9 +52,9 @@ export const metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
+        width: 832,
+        height: 830,
+        alt: `Portrait of ${siteConfig.authorName}`,
       },
     ],
   },
@@ -64,22 +65,17 @@ export const metadata = {
     images: [
       {
         url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
+        alt: `Portrait of ${siteConfig.authorName}`,
       },
     ],
-    creator: `@${siteConfig.username}`,
+    creator: siteConfig.twitterHandle,
   },
   icons: {
     icon: siteConfig.iconIco,
     shortcut: siteConfig.logoIcon,
     apple: siteConfig.logoIcon,
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
-  alternates: {
-    canonical: siteConfig.url,
-  },
+  manifest: "/manifest.webmanifest",
   robots: {
     index: true,
     follow: true,

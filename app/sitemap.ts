@@ -1,55 +1,33 @@
 import { MetadataRoute } from "next";
 
+import { experiences } from "@/config/experience";
+import { Projects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
+  const pages = ["/", "/skills", "/projects", "/experience", "/contact"];
 
-  // Main pages
-  const routes = [
+  return [
+    ...pages.map((path) => ({
+      url:
+        path === "/"
+          ? siteConfig.url
+          : new URL(path, siteConfig.url).toString(),
+    })),
+    ...Projects.map((project) => ({
+      url: new URL(
+        `/projects/${encodeURIComponent(project.id)}`,
+        siteConfig.url
+      ).toString(),
+    })),
+    ...experiences.map((experience) => ({
+      url: new URL(
+        `/experience/${encodeURIComponent(experience.id)}`,
+        siteConfig.url
+      ).toString(),
+    })),
     {
-      url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/skills`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/projects`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/experience`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    // {
-    //   url: `${baseUrl}/contributions`,
-    //   lastModified: new Date(),
-    //   changeFrequency: "monthly" as const,
-    //   priority: 0.8,
-    // },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/resume`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
+      url: new URL("/Mohamed-Tarek-Azab-CV.pdf", siteConfig.url).toString(),
     },
   ];
-
-  return routes;
 }

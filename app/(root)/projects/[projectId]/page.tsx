@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
 import { Icons } from "@/components/common/icons";
+import CustomTooltip from "@/components/ui/custom-tooltip";
 import ProjectDescription from "@/components/projects/project-description";
 import { buttonVariants } from "@/components/ui/button";
 import ChipContainer from "@/components/ui/chip-container";
-import CustomTooltip from "@/components/ui/custom-tooltip";
 import { Projects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/lib/metadata";
 import { cn, formatDateFromObj } from "@/lib/utils";
 import profileImg from "@/public/profile-img.jpg";
 
@@ -18,6 +20,29 @@ interface ProjectPageProps {
   };
 }
 
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const projectId = decodeURIComponent(params.projectId);
+  const project = Projects.find((value) => value.id === projectId);
+
+  if (!project) {
+    return {
+      title: "Project not found",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  return createPageMetadata({
+    title: `${project.id} project`,
+    description: project.shortDescription,
+    path: `/projects/${encodeURIComponent(project.id)}`,
+  });
+}
+
 export async function generateStaticParams() {
   return Projects.map((project) => ({
     projectId: project.id,
@@ -25,7 +50,8 @@ export async function generateStaticParams() {
 }
 
 export default function Project({ params }: ProjectPageProps) {
-  let project = Projects.find((val) => val.id === params.projectId);
+  const projectId = decodeURIComponent(params.projectId);
+  const project = Projects.find((val) => val.id === projectId);
   if (!project) {
     redirect("/projects");
   }
@@ -44,10 +70,11 @@ export default function Project({ params }: ProjectPageProps) {
       </Link>
       <div>
         <time
-          dateTime={Date.now().toString()}
+          dateTime={project.startDate.toISOString()}
           className="block text-sm text-muted-foreground"
         >
-          {formatDateFromObj(project.startDate)}
+          {formatDateFromObj(project.startDate)} -{" "}
+          {formatDateFromObj(project.endDate)}
         </time>
         <h1 className="flex items-center justify-between mt-2 font-heading text-4xl leading-tight lg:text-5xl">
           {project.companyName}
@@ -76,14 +103,14 @@ export default function Project({ params }: ProjectPageProps) {
           >
             <Image
               src={profileImg}
-              alt={"naman"}
+              alt={`${siteConfig.authorName} profile`}
               width={42}
               height={42}
               className="rounded-full bg-background"
             />
 
             <div className="flex-1 text-left leading-tight">
-              <p className="font-medium">{"Mohamed Tarek"}</p>
+              <p className="font-medium">{siteConfig.authorName}</p>
               <p className="text-[12px] text-muted-foreground">
                 @{siteConfig.username}
               </p>
@@ -130,17 +157,21 @@ export default function Project({ params }: ProjectPageProps) {
             </h3>
             <div>
               <p>{page.description}</p>
-              {page.imgArr.map((img, ind) => (
-                <Image
-                  src={img}
-                  key={ind}
-                  alt={img}
-                  width={720}
-                  height={405}
-                  className="my-4 rounded-md border bg-muted transition-colors"
-                  priority
-                />
-              ))}
+              {page.imgArr.length > 0 && (
+                <div>
+                  {page.imgArr.map((img, ind) => (
+                    <Image
+                      src={img}
+                      key={ind}
+                      alt={img}
+                      width={720}
+                      height={405}
+                      className="my-4 rounded-md border bg-muted transition-colors"
+                      priority
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}

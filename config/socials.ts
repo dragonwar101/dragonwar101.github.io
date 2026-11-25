@@ -10,13 +10,13 @@ interface SocialInterface {
 export const SocialLinks: SocialInterface[] = [
   {
     name: "Github",
-    username: "@MohamedTarek",
+    username: "Mohamed Tarek Azab",
     icon: Icons.gitHub,
     link: "https://github.com/dragonwar101",
   },
   {
     name: "LinkedIn",
-    username: "Mohamed Tarek",
+    username: "Mohamed Tarek Azab",
     icon: Icons.linkedin,
     link: "https://www.linkedin.com/in/mohamed-tarek1997",
   },

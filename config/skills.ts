@@ -123,7 +123,7 @@ export const skillsUnsorted: skillsInterface[] = [
   {
     name: "Netlify",
     description:
-      "Manage and organize relational databases efficiently for data-driven applications.",
+      "Platform for deploying and hosting static sites and serverless functions.",
     rating: 4,
     icon: Icons.netlify,
   },
@@ -137,44 +137,79 @@ export const skillsUnsorted: skillsInterface[] = [
   {
     name: "Vue.js",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+      "Build reactive user interfaces and SPAs with the progressive JavaScript framework.",
     rating: 5,
     icon: Icons.vue,
   },
   {
     name: "Vuetify",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+      "Material Design component library for Vue.js applications.",
     rating: 5,
     icon: Icons.vuetify,
   },
   {
     name: "DigitalOcean",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+      "Cloud servers and managed services used to deploy and host web applications.",
     rating: 4,
     icon: Icons.digitalocean,
   },
   {
     name: "Nuxt.js",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+      "Server-side rendering, routing and static generation for Vue.js apps.",
     rating: 5,
     icon: Icons.nuxt,
   },
   {
     name: "SQLite",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+      "Lightweight file-based relational database for embedded and local storage.",
     rating: 4,
     icon: Icons.sqlite,
   },
   {
     name: "SQL Server",
     description:
-      "Build dynamic web apps with a TypeScript-based open-source framework by Google.",
+      "Microsoft's relational database for enterprise data and reporting.",
     rating: 4,
     icon: Icons.sqlserver,
+  },
+  {
+    name: "Python",
+    description:
+      "Build applications and automation with a versatile, readable programming language.",
+    rating: 5,
+    icon: Icons.work,
+  },
+  {
+    name: "Django",
+    description:
+      "Build secure, maintainable web applications with Python's batteries-included framework.",
+    rating: 5,
+    icon: Icons.work,
+  },
+  {
+    name: "PHP",
+    description:
+      "Develop dynamic web applications with a widely used server-side scripting language.",
+    rating: 4,
+    icon: Icons.work,
+  },
+  {
+    name: "Laravel",
+    description:
+      "Build expressive PHP applications with Laravel's web framework and ecosystem.",
+    rating: 5,
+    icon: Icons.work,
+  },
+  {
+    name: "Flask",
+    description:
+      "Create lightweight web applications and APIs with Python's flexible microframework.",
+    rating: 3,
+    icon: Icons.work,
   },
 ];
 

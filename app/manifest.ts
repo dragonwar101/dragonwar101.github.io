@@ -2,37 +2,28 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Mohamed Tarek Portfolio",
-    short_name: "Mohamed's Portfolio",
+    name: "Mohamed Tarek Azab | Full-Stack Developer",
+    short_name: "Mohamed Tarek Azab",
     description:
-      "Mohamed Tarek's modern developer portfolio built with Next.js - available as an open-source template",
+      "Portfolio of Mohamed Tarek Azab, a full-stack developer in Alexandria, Egypt.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#000000",
     icons: [
       {
-        src: "/favicon.ico",
-        sizes: "64x64",
+        src: "/logo.png",
+        sizes: "1024x1024",
         type: "image/png",
       },
       {
-        src: "/favicon.ico",
-        sizes: "64x64",
+        src: "/logo.png",
+        sizes: "1024x1024",
         type: "image/png",
         purpose: "maskable",
       },
     ],
-    categories: [
-      "portfolio",
-      "template",
-      "development",
-      "nextjs",
-      "react",
-      "developer",
-      "web development",
-      "open source",
-    ],
+    categories: ["portfolio", "developer", "web development"],
     lang: "en",
     dir: "ltr",
     scope: "/",
