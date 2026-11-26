@@ -28,8 +28,20 @@ export default function GithubRedirectCard() {
           I&apos;ll be happy to help you with any questions or work you may have.
         </h2>
         <p className="mt-2 mb-10 font-heading text-lg text-muted-foreground">
-          You can get in touch with info on my github.
+          You can email me or reach me on LinkedIn. I&apos;m also on GitHub.
         </p>
+        <div className="mb-6 space-y-2 break-all text-sm text-muted-foreground">
+          <p>
+            <a href="mailto:m.tarekazab1997@gmail.com">
+              m.tarekazab1997@gmail.com
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/mohamed-tarek1997">
+              https://www.linkedin.com/in/mohamed-tarek1997
+            </a>
+          </p>
+        </div>
         <Github className="w-10 h-10 text-muted-foreground mb-5" />
       </CardContent>
       <CardFooter className="px-8 pb-8 pt-0">

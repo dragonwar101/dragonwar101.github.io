@@ -56,6 +56,15 @@ export default function Project({ params }: ProjectPageProps) {
     redirect("/projects");
   }
 
+  const projectTags = [
+    ...project.category,
+    ...(project.involvement ? [project.involvement] : []),
+    ...(project.contributions ?? []),
+  ];
+  const hasDescription =
+    project.descriptionDetails.paragraphs.length > 0 ||
+    project.descriptionDetails.bullets.length > 0;
+
   return (
     <article className="container relative max-w-3xl py-6 lg:py-10">
       <Link
@@ -69,13 +78,15 @@ export default function Project({ params }: ProjectPageProps) {
         All Projects
       </Link>
       <div>
-        <time
-          dateTime={project.startDate.toISOString()}
-          className="block text-sm text-muted-foreground"
-        >
-          {formatDateFromObj(project.startDate)} -{" "}
-          {formatDateFromObj(project.endDate)}
-        </time>
+        {project.startDate && project.endDate && (
+          <time
+            dateTime={project.startDate.toISOString()}
+            className="block text-sm text-muted-foreground"
+          >
+            {formatDateFromObj(project.startDate)} -{" "}
+            {formatDateFromObj(project.endDate)}
+          </time>
+        )}
         <h1 className="flex items-center justify-between mt-2 font-heading text-4xl leading-tight lg:text-5xl">
           {project.companyName}
           <div className="flex items-center">
@@ -95,7 +106,14 @@ export default function Project({ params }: ProjectPageProps) {
             )}
           </div>
         </h1>
-        <ChipContainer textArr={project.category} />
+        {(project.company || project.client) && (
+          <p className="mt-2 text-sm text-muted-foreground">
+            {project.company && <>Company: {project.company}</>}
+            {project.company && project.client && " · "}
+            {project.client && <>Client: {project.client}</>}
+          </p>
+        )}
+        <ChipContainer textArr={projectTags} />
         <div className="mt-4 flex space-x-4">
           <Link
             href={siteConfig.links.github}
@@ -119,44 +137,49 @@ export default function Project({ params }: ProjectPageProps) {
         </div>
       </div>
 
-      <Image
-        src={project.companyLogoImg}
-        alt={project.companyName}
-        width={720}
-        height={405}
-        className="my-8 rounded-md border bg-muted transition-colors"
-        priority
-      />
-
-      <div className="mb-7 ">
-        <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
-          Tech Stack
-        </h2>
-        <ChipContainer textArr={project.techStack} />
-      </div>
-
-      <div className="mb-7 ">
-        <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
-          Description
-        </h2>
-        {/* {<project.descriptionComponent />} */}
-        <ProjectDescription
-          paragraphs={project.descriptionDetails.paragraphs}
-          bullets={project.descriptionDetails.bullets}
+      {project.companyLogoImg && (
+        <Image
+          src={project.companyLogoImg}
+          alt={project.companyName}
+          width={720}
+          height={405}
+          className="my-8 rounded-md border bg-muted transition-colors"
+          priority
         />
-      </div>
+      )}
 
-      <div className="mb-7 ">
-        <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-5">
-          Page Info
-        </h2>
-        {project.pagesInfoArr.map((page, ind) => (
-          <div key={ind}>
-            <h3 className="flex items-center font-heading text-xl leading-tight lg:text-xl mt-3">
-              <Icons.star className="h-5 w-5 mr-2" /> {page.title}
-            </h3>
-            <div>
-              <p>{page.description}</p>
+      {project.techStack.length > 0 && (
+        <div className="mb-7 ">
+          <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
+            Tech Stack
+          </h2>
+          <ChipContainer textArr={project.techStack} />
+        </div>
+      )}
+
+      {hasDescription && (
+        <div className="mb-7 ">
+          <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
+            Description
+          </h2>
+          <ProjectDescription
+            paragraphs={project.descriptionDetails.paragraphs}
+            bullets={project.descriptionDetails.bullets}
+          />
+        </div>
+      )}
+
+      {project.pagesInfoArr.length > 0 && (
+        <div className="mb-7 ">
+          <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-5">
+            Page Info
+          </h2>
+          {project.pagesInfoArr.map((page, ind) => (
+            <div key={ind}>
+              <h3 className="flex items-center font-heading text-xl leading-tight lg:text-xl mt-3">
+                <Icons.star className="h-5 w-5 mr-2" /> {page.title}
+              </h3>
+              {page.description && <p>{page.description}</p>}
               {page.imgArr.length > 0 && (
                 <div>
                   {page.imgArr.map((img, ind) => (
@@ -173,9 +196,9 @@ export default function Project({ params }: ProjectPageProps) {
                 </div>
               )}
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <hr className="mt-12" />
       <div className="flex justify-center py-6 lg:py-10">

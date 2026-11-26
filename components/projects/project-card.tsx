@@ -11,17 +11,25 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const projectTags = [
+    ...project.category,
+    ...(project.involvement ? [project.involvement] : []),
+    ...(project.contributions ?? []),
+  ];
+
   return (
     <div className="relative p-6 max-w-sm bg-background border border-border rounded-lg">
-      <div className="relative w-full h-[200px]">
-        <Image
-          className="rounded-lg border border-border object-cover"
-          src={project.companyLogoImg}
-          alt={`${project.companyName} project`}
-          fill
-        />
-      </div>
-      <div className="pt-5 space-y-3">
+      {project.companyLogoImg && (
+        <div className="relative w-full h-[200px]">
+          <Image
+            className="rounded-lg border border-border object-cover"
+            src={project.companyLogoImg}
+            alt={`${project.companyName} project`}
+            fill
+          />
+        </div>
+      )}
+      <div className={project.companyLogoImg ? "pt-5 space-y-3" : "space-y-3"}>
         <h5 className="text-2xl font-bold tracking-tight text-foreground">
           {project.companyName}
         </h5>
@@ -29,7 +37,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.shortDescription}
         </p>
         <div className="flex gap-2 flex-wrap">
-          <ChipContainer textArr={project.category} />
+          <ChipContainer textArr={projectTags} />
         </div>
         <Link href={`/projects/${project.id}`}>
           <Button variant={"default"} className="mt-2">

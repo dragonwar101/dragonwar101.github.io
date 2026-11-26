@@ -61,6 +61,8 @@ export type ValidSkills =
   | "Framer Motion"
   | "Vue"
   | "SQLServer"
+  | "Blazor"
+  | "AngularJS"
   | "Nuxt.js"
   | "Tailwind CSS"
   | "Owl Carousel"
@@ -77,6 +79,25 @@ export type ValidCategory =
   | "3D Modeling";
 
 export type ValidExpType = "Personal" | "Professional";
+
+export type ProjectInvolvement =
+  | "Long-term product"
+  | "Maintained & improved"
+  | "Scoped delivery";
+
+export type ProjectContribution =
+  | "Backend"
+  | "Frontend"
+  | "Admin panel"
+  | "Frontend integration"
+  | "API integrations"
+  | "Integration phase"
+  | "Design implementation"
+  | "App structure"
+  | "Scaling & planning"
+  | "Mobile alerts"
+  | "Bug fixing & optimization"
+  | "Sensor monitoring integration";
 
 export type ValidPages =
   | "home"

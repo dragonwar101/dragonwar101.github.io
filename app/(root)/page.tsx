@@ -152,8 +152,9 @@ export default function IndexPage() {
               stable and scale with minimal technical debt.
               <br />
               <br />
-              Currently seeking opportunities to apply my skills in creating
-              innovative solutions.
+              I build and migrate business systems end to end, from APIs and
+              payments to dashboards, and I&apos;m open to remote full-time or
+              contract work.
             </p>
           </div>
 
@@ -182,6 +183,20 @@ export default function IndexPage() {
               >
                 <Icons.contact className="w-4 h-4 mr-2" /> Contact
               </Link>
+            </AnimatedText>
+            <AnimatedText delay={1}>
+              <a
+                href="/Mohamed-Tarek-Azab-CV.pdf"
+                download
+                className={cn(
+                  buttonVariants({
+                    variant: "outline",
+                    size: "lg",
+                  })
+                )}
+              >
+                Download CV
+              </a>
             </AnimatedText>
           </div>
           <AnimatedText delay={1.2}>

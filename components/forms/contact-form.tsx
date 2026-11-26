@@ -52,7 +52,7 @@ export function ContactForm() {
     storeModal.onOpen({
       title: "Email draft ready",
       description:
-        "Your email app should have opened with your message ready to send. If it didn't, email me directly at m.tarekazab1997@gmail.com.",
+        "Your email app should open with a draft. Press send there to reach me. If nothing opens, email me directly at m.tarekazab1997@gmail.com.",
       icon: Icons.infoMark,
     });
   }
@@ -121,7 +121,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Open email draft</Button>
       </form>
     </Form>
   );
